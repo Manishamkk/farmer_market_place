@@ -40,7 +40,21 @@ public class Product {
     private String location;
     private String imageUrl;
 
-    public Product() {}
+    
+
+@ManyToOne(fetch = FetchType.LAZY, optional = false)
+@JoinColumn(name = "farmer_id", nullable = false)
+private Users farmer;
+
+    public Users getFarmer() {
+	return farmer;
+}
+
+public void setFarmer(Users farmer) {
+	this.farmer = farmer;
+}
+
+	public Product() {}
 
     public Long getId() { return id; }
     public void setId(Long id) { this.id = id; }
